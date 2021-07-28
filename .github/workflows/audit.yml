@@ -47,14 +47,14 @@ jobs:
             owners
             maintainers
           draft: false
- 
-       - name: Auto approve
+          
+      - name: Auto approve
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: juliangruber/approve-pull-request-action@v1
-        with:
+          with:
           github-token: ${{ secrets.TOKEN }}
           number: ${{ steps.cpr.outputs.pull-request-number }}
- 
+
       - name: Enable Pull Request Automerge
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v1
